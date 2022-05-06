@@ -14,10 +14,18 @@ def change_dir(year):
     if os.path.basename(os.getcwd()) == "src":
         os.chdir("..")
 
+    # dataディレクトリがなければ作成
+    if not os.path.exists("data"):
+        os.mkdir("data")
+
+    # dataディレクトリに移動
+    os.chdir("data")
+
     # カレントディレクトリをyearに変更し、ディレクトリがなければ作成
     if not os.path.exists("./" + year + "/"):
         os.mkdir("./" + year + "/")
 
+    # カレントディレクトリをyearに変更
     os.chdir("./" + year + "/")
 
 

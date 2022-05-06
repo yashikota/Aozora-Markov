@@ -10,6 +10,9 @@ def gen_sentence():
         model = markovify.NewlineText.from_json(f.read())
     print("model_data.jsonを読み込みました")
 
+    # 境界線の表示
+    print("-" * 30)
+
     # モデルから文章を生成
     sentence = None
     while sentence == None:
@@ -25,7 +28,7 @@ def gen_sentence():
 def main():
     # model_data.jsonがあれば読み込み、なければ生成
     if os.path.exists("model_data.json"):
-        print("model_data.jsonを読み込みます")
+        print("model_data.jsonを読み込んでいます")
         sentence = gen_sentence()
     else:
         print("model_data.jsonがありません")
@@ -36,7 +39,6 @@ def main():
 
     # 表示
     print(sentence)
-    print(len(sentence), "文字")
 
 
 if __name__ == "__main__":
