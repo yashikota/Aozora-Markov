@@ -5,7 +5,6 @@ import download
 import prep
 import learn
 import output
-import tweet
 import parse
 
 
