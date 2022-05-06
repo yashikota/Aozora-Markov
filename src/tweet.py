@@ -41,4 +41,4 @@ def main(parsed_text):
 
 
 if __name__ == "__main__":
-    main()
+    main(str)

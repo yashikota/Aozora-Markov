@@ -10,8 +10,8 @@ import parse
 
 # ディレクトリの変更
 def change_dir(year):
-    # もしカレントディレクトリがprogramsであれば1つ上のディレクトリに移動
-    if os.path.basename(os.getcwd()) == "programs":
+    # もしカレントディレクトリがsrcであれば1つ上のディレクトリに移動
+    if os.path.basename(os.getcwd()) == "src":
         os.chdir("..")
 
     # カレントディレクトリをyearに変更し、ディレクトリがなければ作成
@@ -31,11 +31,12 @@ def main():
         download.main(YEAR)
         prep.main()
 
-    # parsed_textを取得
-    parsed_text = parse.main()
+    # model_data.jsonがなければ作成
+    if not os.path.exists("model_data.json"):
+        parsed_text = parse.main()
+        learn.main(parsed_text)
 
     # 表示
-    learn.main(parsed_text)
     output.main()
 
 

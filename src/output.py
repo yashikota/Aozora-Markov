@@ -25,6 +25,7 @@ def gen_sentence():
 def main():
     # model_data.jsonがあれば読み込み、なければ生成
     if os.path.exists("model_data.json"):
+        print("model_data.jsonを読み込みます")
         sentence = gen_sentence()
     else:
         print("model_data.jsonがありません")
