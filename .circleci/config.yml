@@ -32,7 +32,7 @@ jobs:
 
       - run:
           name: Run bot.py
-          command: python ./bot.py
+          command: python ./src/bot.py
 
 workflows:
   version: 2
@@ -40,7 +40,7 @@ workflows:
 
     triggers:
       - schedule:
-          cron: "55 * * * *" # 1時間おきに実行(JST)
+          cron: "59 * * * *" # 1時間おきに実行(JST)
           filters:
             branches:
               only:

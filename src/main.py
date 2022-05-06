@@ -1,5 +1,6 @@
 import os
 
+import dir
 import download
 import prep
 import learn
@@ -8,31 +9,10 @@ import tweet
 import parse
 
 
-# ディレクトリの変更
-def change_dir(year):
-    # もしカレントディレクトリがsrcであれば1つ上のディレクトリに移動
-    if os.path.basename(os.getcwd()) == "src":
-        os.chdir("..")
-
-    # dataディレクトリがなければ作成
-    if not os.path.exists("data"):
-        os.mkdir("data")
-
-    # dataディレクトリに移動
-    os.chdir("data")
-
-    # カレントディレクトリをyearに変更し、ディレクトリがなければ作成
-    if not os.path.exists("./" + year + "/"):
-        os.mkdir("./" + year + "/")
-
-    # カレントディレクトリをyearに変更
-    os.chdir("./" + year + "/")
-
-
 def main():
     # ディレクトリの変更
     YEAR = "2021"
-    change_dir(YEAR)
+    dir.main(YEAR)
 
     # input.txtがなければ作成
     if not os.path.exists("input.txt"):
