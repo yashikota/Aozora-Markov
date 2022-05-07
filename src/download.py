@@ -20,7 +20,7 @@ def extract_url(literary_url):
         res2 = requests.get(literary_url)
 
         # .zip"で終わるURLを抽出
-        zip_url = (re.findall(r'/files/.*.zip"', res2.text))[0]
+        zip_url = re.search(r'/files/.*.zip"', res2.text).group()
         pre = re.match(r"https://www.aozora.gr.jp/cards/\d*",
                        literary_url).group()
 
