@@ -2,7 +2,7 @@ import requests
 import re
 from tqdm import tqdm
 import os
-import zipfile
+import shutil
 
 
 #  URLリストを取得
@@ -73,8 +73,7 @@ def unzip_files():
 
     # ZIPファイルを解凍
     for file_name in tqdm(os.listdir(ZIP_PATH), desc="解凍"):
-        with zipfile.ZipFile(ZIP_PATH + file_name, "r") as zf:
-            zf.extractall(DIR_PATH)
+        shutil.unpack_archive(ZIP_PATH + file_name, DIR_PATH)
 
     # .txtファイル以外を削除
     del_files = [f for f in os.listdir(DIR_PATH) if not f.endswith(".txt")]
