@@ -40,7 +40,7 @@ workflows:
 
     triggers:
       - schedule:
-          cron: "56 * * * *" # 1時間おきに実行(JST)
+          cron: "57 * * * *" # 1時間おきに実行(JST)
           filters:
             branches:
               only:
